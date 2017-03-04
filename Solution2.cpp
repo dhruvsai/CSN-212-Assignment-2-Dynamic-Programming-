@@ -8,6 +8,8 @@ using namespace std;
 int bad[100][4];
 int badn;
 long long roadnum[100][100];
+
+// See if the edge is reachable
 int reachable(int x1,int y1,int x2,int y2){
     for(int i=0;i<badn;i++){
         if( (x1==bad[i][0]&& y1==bad[i][1]&& x2==bad[i][2] && y2== bad[i][3]) ||
@@ -17,6 +19,7 @@ int reachable(int x1,int y1,int x2,int y2){
     return 1;
 }
 
+// Main dp implementation
 long long dp(int m,int n){
     for(int i=0;i<=m;i++){
         roadnum[i][0]=0;
@@ -39,7 +42,6 @@ long long dp(int m,int n){
     return roadnum[m][n];
 }
 int main(){
-    freopen("in.txt","r",stdin);
     int m,n;
     while(cin>>m>>n){
         cin>>badn;
